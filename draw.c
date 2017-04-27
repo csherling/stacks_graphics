@@ -190,10 +190,10 @@ void add_box( struct matrix * polygons,
   //right
   add_polygon(polygons,x1,y0,z0,
   	      x1,y1,z0,
-  	      x1,y0,z1);
-  add_polygon(polygons,x1,y1,z0,
-  	      x1,y1,z1,
-  	      x1,y0,z1);
+  	      x1,y1,z1);
+  add_polygon(polygons,x1,y1,z1,
+  	      x1,y0,z1,
+  	      x1,y0,z0);
   //back
   add_polygon(polygons,x1,y0,z1,
   	      x1,y1,z1,
@@ -246,7 +246,7 @@ void add_sphere( struct matrix * polygon,
   longStart = 0;
   longStop = num_steps;
 
-  printf("\n\n%d\n\n", num_steps);
+  /* printf("\n\n%d\n\n", num_steps); */
   
   num_steps++;
   /* for(longt = longStart; longt < longStop; longt++){ */
@@ -273,7 +273,7 @@ void add_sphere( struct matrix * polygon,
       index = longt * (num_steps) + lat;
 
       if(longt < longStop -1){
-      printf("index: %d\n", index);
+      /* printf("index: %d\n", index); */
       add_polygon(polygon,
 		  points->m[0][index+1+num_steps],
 		  points->m[1][index+1+num_steps],
@@ -380,6 +380,8 @@ struct matrix * generate_sphere(double cx, double cy, double cz,
       add_point(points, x, y, z);
     }
   }
+
+  /* matrix_mult(make_rotY(45), points); */
   
   return points;
 }

@@ -15,7 +15,9 @@ int main(int argc, char **argv) {
   struct matrix * edges;
   struct matrix * transform;
   struct matrix * polygons;
-
+  struct stack * stack;
+  stack = new_stack();
+  
   edges = new_matrix(4, 4);
   transform = new_matrix(4, 4);
   polygons = new_matrix(4, 4);
@@ -32,9 +34,9 @@ int main(int argc, char **argv) {
   /* print_matrix( make_hermite() ); */
 
   if ( argc == 2 )
-    parse_file( argv[1], transform, edges, s );
+    parse_file( argv[1], transform, edges, stack, s );
   else
-    parse_file( "face_script", transform, edges, s );
+    parse_file( "script", transform, edges, stack, s );
 
 
 
@@ -50,15 +52,15 @@ int main(int argc, char **argv) {
 
   /* ident(edges); */
   
-  add_box(polygons,-80,-120,0,75,75,75);
+  /* add_box(polygons,-80,-120,0,75,75,75); */
   /* add_box(polygons, -200, 200, 200, 400, 400, 400); */
   /* add_sphere(polygons, 0, 0, 0, 50, 0.05); */
   /* add_torus(polygons,0,0,0,150,100,0.05); */
   /* matrix_mult(make_translate(-250,-250,0), polygons); */
   /* add_box(polygons,275,175,0,40,50,50); */
 
-  matrix_mult(make_rotX(30), polygons);
-  matrix_mult(make_rotY(-20), polygons);
+  /* matrix_mult(make_rotX(30), polygons); */
+  /* matrix_mult(make_rotY(-20), polygons); */
   matrix_mult(make_translate(250,250,0), polygons);
   
   /* print_matrix(edges); */

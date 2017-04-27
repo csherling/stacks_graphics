@@ -18,10 +18,10 @@ dsiplay.o: display.c display.h ml6.h matrix.h
 matrix.o: matrix.c matrix.h
 	$(CC) $(CFLAGS) -c matrix.c
 
-stack.o: stack.c stack.h
+stack.o: stack.c stack.h display.h ml6.h matrix.h
 	$(CC) $(CFLAGS) -c stack.c
 
-parser.o: parser.c parser.h matrix.h draw.h display.h ml6.h stack.h
+parser.o:  matrix.h draw.h display.h ml6.h stack.h parser.c parser.h
 	$(CC) $(CFLAGS) -c parser.c
 
 run: all

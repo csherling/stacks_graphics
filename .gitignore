@@ -1,8 +1,19 @@
+#image files
+*.ppm
+*.png
+*.jpg
+*.jpeg
+
+#temp files
+*~
+
 # Object files
 *.o
 *.ko
 *.obj
 *.elf
+*.pyc
+*.class
 
 # Precompiled Headers
 *.gch
@@ -31,3 +42,5 @@
 # Debug files
 *.dSYM/
 *.su
+
+
